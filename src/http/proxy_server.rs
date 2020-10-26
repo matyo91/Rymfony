@@ -61,9 +61,11 @@ pub(crate) async fn start<'a>(
                         return serve_static(req, static_files_server.clone()).await;
                     }
 
+                    let script_root_path = format!("{}{}", document_root, request_path);
+
                     return handle_fastcgi(
                         document_root.clone(),
-                        script_filename.clone(),
+                        script_root_path,
                         remote_addr.clone(),
                         req,
                         http_port,
