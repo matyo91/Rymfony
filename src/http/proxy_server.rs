@@ -57,7 +57,7 @@ pub(crate) async fn start<'a>(
                         if render_static { " (static)" } else { "" }
                     );
 
-                    if render_static {
+                    if false && render_static {
                         return serve_static(req, static_files_server.clone()).await;
                     }
 
